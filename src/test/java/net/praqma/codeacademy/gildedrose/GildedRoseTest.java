@@ -35,7 +35,7 @@ public class GildedRoseTest {
         Item[] items = new Item[] { new Item("Conjured Mana Cake", 25, 25) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertTrue("Conjured doesn't increase double",app.items[0].quality==27 );
+        assertTrue("Conjured doesn't decrease double",app.items[0].quality==23 );
         
     }
 }
