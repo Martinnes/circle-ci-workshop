@@ -6,11 +6,18 @@ jobs:
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Gradle Test
           command: gradle test 
       - store_test_results:
           path: build/test-results
+      - run:
+          name: Gradle Build
+	  command: gradle jar
+      - store_artifacts:
+	  path: /build/libs
 
+#path is dir in container
+#dest is prefix added to artifact paths in artifacts api default: dir of file specified in path
 
 #|
 #            echo 'Hello World!'
