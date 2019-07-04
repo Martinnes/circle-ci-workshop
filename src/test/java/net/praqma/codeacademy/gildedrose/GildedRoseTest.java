@@ -29,4 +29,13 @@ public class GildedRoseTest {
         assertTrue("brie is higher quality than it should be able to",app.items[0].quality==50 );
         
     }
+
+    @Test
+    public void conjured() {
+        Item[] items = new Item[] { new Item("Conjured Mana Cake", 25, 25) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertTrue("Conjured doesn't increase double",app.items[0].quality==27 );
+        
+    }
 }

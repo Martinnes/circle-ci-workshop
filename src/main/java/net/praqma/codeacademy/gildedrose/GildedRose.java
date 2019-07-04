@@ -17,7 +17,7 @@ class GildedRose {
             switch (items[i].name){
                         case "Aged Brie": updateBrieQuality(items[i]); break;
                         case "Backstage passes to a TAFKAL80ETC concert": updateKafkaQuality(items[i]); break;
-                        //case "Conjured" : updateConjuredQuality(items[i]); break;
+                        case "Conjured Mana Cake" : updateConjuredQuality(items[i]); break;
                         default: updateNormalItem(items[i]); break;
             }
             /*
