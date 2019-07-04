@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
@@ -10,13 +10,27 @@ jobs:
           command: gradle test 
       - store_test_results:
           path: build/test-results
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - checkout
       - run:
           name: Gradle Build
           command: gradle jar
       - store_artifacts:
           path: build/libs
 
-#path is dir in container
+#we need either to specify worksflows or it will only run job called build
+workflows:
+  version: 2
+  do_stuff:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test
+          
 #dest is prefix added to artifact paths in artifacts api default: dir of file specified in path
 
 #|
